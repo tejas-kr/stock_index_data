@@ -2,10 +2,22 @@ from typing import Literal
 from utils.logger import logger
 from exchange_index_list import IndexData
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
 
+ORIGINS_LIST = [
+    "http://localhost:5173"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=ORIGINS_LIST,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def root():
