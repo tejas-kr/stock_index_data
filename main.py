@@ -8,7 +8,8 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 ORIGINS_LIST = [
-    "http://localhost:5173"
+    "http://localhost:5173",
+    "https://exchange-index-list-frontend.vercel.app",
 ]
 
 app.add_middleware(
